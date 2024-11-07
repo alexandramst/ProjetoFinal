@@ -20,30 +20,53 @@ body, p, h1, h2, h3, h4, h5, h6, .tooltip {
 
 #map-container {
     width: 100%;
+    max-width: 1200px; /* Limite máximo para o tamanho do mapa */
     display: flex;
     align-items: center;
     justify-content: center;
     position: relative; /* Para permitir o posicionamento absoluto do pin dentro do mapa */
     margin: 0;
-    flex-grow: 1;
 }
 
 #world-map {
-    width: auto;
-    height: 85vh;
+    width: 100%;
+    height: auto; /* Ajuste automático da altura mantendo proporção */
     max-width: 90%;
     object-fit: contain;
-    position: relative; /* Permite que o pin se posicione relativamente ao mapa */
+    position: relative; /* Permite que os pins se posicionem relativamente ao mapa */
 }
 
 /*Estilo para o Footer*/
-footer {
+/* footer {
     background-color: #000000;
     color: #f0f0f0;
     padding-top: 10px;
     padding-bottom: 0px;
     width: 100%;
     text-align: center;
+} */
+
+/* footer {
+    background-color: #000000; /* Cor de fundo preto */
+    /*color: #ffffff;*/ /* Texto em branco */
+    /* padding: 20px;
+    width: 100%;
+    text-align: center;
+    position: relative;
+    bottom: 0; */
+/* } */ 
+
+footer {
+    background-color: #000000;
+    color: #f0f0f0;
+    padding-top: 10px;
+    padding-bottom: 10px; /* Ajustar o padding para uma altura mais confortável */
+    width: 100%;
+    text-align: center;
+    position: fixed; /* Garante que o footer fique fixo no final da página */
+    bottom: 0; /* Posiciona na parte inferior */
+    left: 0;
+    z-index: 10; /* Certifique-se que está acima de outros elementos */
 }
 
 
@@ -99,12 +122,13 @@ html, body {
     opacity: 0;
     position: absolute;
     background: white;
-    box-shadow: 0px 0px 20px 0px rgb(255, 255, 255);
+    box-shadow: 0px 0px 80px 0px rgb(255, 255, 255);
     border-radius: 100%;
     transform-origin: center; /* Ajuste do ponto de origem */
     animation-timing-function: linear;
     animation-iteration-count: infinite;
-    animation-delay: -30s;
+    animation-delay: -30s; /* Reduzido para aumentar a velocidade inicial */
+    animation-duration: 5s; /* Diminua este valor para aumentar a velocidade */
 }
 
 .size-1 {
@@ -136,29 +160,43 @@ html, body {
 /*PIN*/
 .pin {
     position: absolute;
-    top: 36%; /* Ajuste conforme necessário */
-    left: 44.4%; /* Ajuste conforme necessário */
     width: 20px;
     height: 20px;
     background-color: #E81E25;
     border-radius: 50%;
-    box-shadow: 0 0 50px 20px rgba(232, 30, 37, 1), 0 0 100px 40px rgba(232, 30, 37, 0.7); /*glow*/
+    box-shadow: 0 0 50px 20px rgba(232, 30, 37, 1), 0 0 100px 40px rgba(232, 30, 37, 0.7); /* glow */
     transform: translate(-50%, -50%);
     border: 2px solid #ffffff; /* Borda branca para destaque */
     animation: glow 2s ease-in-out infinite; /* Animação de glow pulsante */
     cursor: pointer; /* Mostra que o elemento é clicável */
 }
 
+/* Posicionamento Responsivo dos Pins */
+#about-pin {
+    top: 42%;  /* Ajuste conforme necessário */
+    left: 45.5%;
+}
+
+#projects-pin {
+    top: 42%;  /* Ajuste conforme necessário */
+    left: 28%;
+}
+
+#contacts-pin {
+    top: 84%;  /* Ajuste conforme necessário */
+    left: 90%;
+}
+
 /* Animação de Glow */
 @keyframes glow {
     0% {
-        box-shadow: 0 0 5px rgba(232, 30, 37, 0.5);
+        box-shadow: 0 0 10px rgba(232, 30, 37, 0.5);
     }
     50% {
-        box-shadow: 0 0 20px rgba(232, 30, 37, 1);
+        box-shadow: 0 0 30px rgba(232, 30, 37, 1);
     }
     100% {
-        box-shadow: 0 0 5px rgba(232, 30, 37, 0.5);
+        box-shadow: 0 0 10px rgba(232, 30, 37, 0.5);
     }
 }
 
@@ -176,6 +214,7 @@ html, body {
     white-space: nowrap;
     display: none; /* Esconde o balão inicialmente */
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    z-index: 2,
 }
 
 /* Mostrar o Balão ao passar o mouse */

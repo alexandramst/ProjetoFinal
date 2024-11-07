@@ -17,7 +17,7 @@ function dot(i) {
     root.style.top = `${Math.random() * 100}%`;
     root.style.left = `${Math.random() * 100}%`;
     root.classList.add('star', `size-${size}`);
-    root.style.animation = `anim ${Math.random() * 10 + 5}s linear infinite, fade ${Math.random() * 20 + 15}s ease-in-out infinite`;
+    root.style.animation = `anim ${Math.random() * 5 + 3}s linear infinite, fade ${Math.random() * 10 + 8}s ease-in-out infinite`;
     return root;
 }
 
@@ -55,7 +55,7 @@ function initIntroStars() {
         star.style.top = `${Math.random() * 100}%`;
         star.style.left = `${Math.random() * 100}%`;
         star.classList.add('star', `size-${size}`);
-        star.style.animation = `anim ${Math.random() * 10 + 5}s linear infinite, fade ${Math.random() * 20 + 15}s cubic-bezier(0.6, 0.04, 0.98, 0.335) infinite`;
+        star.style.animation = `anim ${Math.random() * 5 + 3}s linear infinite, fade ${Math.random() * 10 + 8}s cubic-bezier(0.6, 0.04, 0.98, 0.335) infinite`;
         introSky.appendChild(star);
     }
 }
@@ -77,3 +77,4 @@ window.addEventListener('load', function() {
         }, 2000); // 2000ms = 2 segundos para corresponder ao tempo de transição
     }, 4000); // 4000ms = 4 segundos para exibir o GIF inicialmente
 });
+
