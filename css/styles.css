@@ -1,0 +1,278 @@
+body {
+    background-color: #000;
+    color: #f0f0f0;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+body, p, h1, h2, h3, h4, h5, h6, .tooltip {
+    font-family: 'Roboto', sans-serif;
+}
+
+#logo {
+    max-width: 140px;
+    margin-top: 20px;
+}
+
+#map-container {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative; /* Para permitir o posicionamento absoluto do pin dentro do mapa */
+    margin: 0;
+    flex-grow: 1;
+}
+
+#world-map {
+    width: auto;
+    height: 85vh;
+    max-width: 90%;
+    object-fit: contain;
+    position: relative; /* Permite que o pin se posicione relativamente ao mapa */
+}
+
+/*Estilo para o Footer*/
+footer {
+    background-color: #000000;
+    color: #f0f0f0;
+    padding-top: 10px;
+    padding-bottom: 0px;
+    width: 100%;
+    text-align: center;
+}
+
+
+/*Code-Pen Space and Stars Animation*/
+/* #animation-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+.circle {
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.03);
+    animation: move 30s linear infinite;
+    z-index: 1;
+}
+
+@keyframes move {
+    0% {
+        transform: translateY(0) scale(1);
+    }
+    50% {
+        transform: translateY(-600px) scale(0.8);
+    }
+    100% {
+        transform: translateY(0) scale(1);
+    }
+} */
+
+html, body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+}
+
+#sky {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: 0;
+}
+
+.star {
+    opacity: 0;
+    position: absolute;
+    background: white;
+    box-shadow: 0px 0px 20px 0px rgb(255, 255, 255);
+    border-radius: 100%;
+    transform-origin: center; /* Ajuste do ponto de origem */
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-delay: -30s;
+}
+
+.size-1 {
+    width: 1px;
+    height: 1px;
+}
+
+.size-2 {
+    width: 2px;
+    height: 2px;
+}
+
+@keyframes fade {
+    0% { opacity: 0; }
+    50% { opacity: 1; }
+    100% { opacity: 0; }
+}
+
+@keyframes anim {
+    0% { transform: translate(0, 0); }
+    100% {
+        transform: translate(
+            calc(100vw * (random() - 0.5)),
+            calc(100vh * (random() - 0.5))
+        );
+    }
+}
+
+/*PIN*/
+.pin {
+    position: absolute;
+    top: 36%; /* Ajuste conforme necessário */
+    left: 44.4%; /* Ajuste conforme necessário */
+    width: 20px;
+    height: 20px;
+    background-color: #E81E25;
+    border-radius: 50%;
+    box-shadow: 0 0 50px 20px rgba(232, 30, 37, 1), 0 0 100px 40px rgba(232, 30, 37, 0.7); /*glow*/
+    transform: translate(-50%, -50%);
+    border: 2px solid #ffffff; /* Borda branca para destaque */
+    animation: glow 2s ease-in-out infinite; /* Animação de glow pulsante */
+    cursor: pointer; /* Mostra que o elemento é clicável */
+}
+
+/* Animação de Glow */
+@keyframes glow {
+    0% {
+        box-shadow: 0 0 5px rgba(232, 30, 37, 0.5);
+    }
+    50% {
+        box-shadow: 0 0 20px rgba(232, 30, 37, 1);
+    }
+    100% {
+        box-shadow: 0 0 5px rgba(232, 30, 37, 0.5);
+    }
+}
+
+/* Balão de Conversa */
+.balloon {
+    position: absolute;
+    top: -40px; /* Posiciona o balão acima do pin */
+    left: 50%;
+    transform: translateX(-50%);
+    background: #ffffff;
+    color: #000;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 12px;
+    white-space: nowrap;
+    display: none; /* Esconde o balão inicialmente */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Mostrar o Balão ao passar o mouse */
+.pin:hover .balloon {
+    display: block;
+}
+
+/* CSS para o Modal */
+.modal-content {
+    background-color: #2f2f2f;
+    color: #f0f0f0;
+}
+
+.tooltip {
+    position: absolute;
+    background: #fff;
+    color: #000;
+    padding: 5px 10px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    transform: translate(-50%, -150%);
+    opacity: 0;
+    transition: opacity 0.3s;
+    pointer-events: none;
+    font-size: 12px;
+    z-index: 2;
+}
+
+.pin:hover + .tooltip {
+    opacity: 1;
+}
+
+.pin {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background-color: #E81E25;
+    border-radius: 50%;
+    box-shadow: 0 0 15px rgba(232, 30, 37, 0.8);
+    transform: translate(-50%, -50%);
+    cursor: pointer;
+}
+
+/* GIF INTRO */
+#intro-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    transition: opacity 3s ease-in-out;
+}
+
+#intro-gif {
+    max-width: 80%;
+    max-height: 80%;
+    transition: transform 3s ease-in-out, opacity 3s ease-in-out;
+}
+
+.hidden {
+    opacity: 0;
+    visibility: hidden;
+}
+
+#intro-sky {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: -1; /* Estrelas ficam atrás do GIF */
+}
+
+.star {
+    opacity: 0;
+    position: absolute;
+    background: white;
+    box-shadow: 0px 0px 20px 0px rgb(255, 255, 255);
+    border-radius: 100%;
+    transform-origin: center;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-delay: -30s;
+}
+
+.size-1 {
+    width: 1px;
+    height: 1px;
+}
+
+.size-2 {
+    width: 2px;
+    height: 2px;
+}

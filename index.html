@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Around the World - Alexandra</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="js/main.js" defer></script>
+
+</head>
+
+<body>
+    <!-- GIF INTRO -->
+    <div id="intro-container">
+        <div id="intro-sky"></div> <!-- Estrelas na animação do GIF -->
+        <img src="images/planet.gif" alt="Planet Animation" id="intro-gif">
+    </div>
+
+    <main>
+
+        <!-- Code-Pen Space and Stars Animation -->
+        <!-- <div id="animation-container"></div> -->
+        <div id="sky"></div>
+            
+        <!-- Header Section with Logo -->
+        <header class="text-center">
+            <img src="images/Logotipo_Around_The_World.png" alt="Around the World Logo" id="logo" class="img-fluid">
+        </header>
+
+        <!-- World Map Section -->
+        <div id="map-container">
+            <img src="images/Background_Around_The_World.webp" alt="World Map" id="world-map">
+
+            <!-- PIN's -->
+            <div class="pin" style="top: 42%; left: 45.5%;" data-toggle="modal" data-target="#aboutMeModal"></div>
+            <div class="tooltip" style="top: 42%; left: 45.5%;">About Me</div>
+
+            <div class="pin" style="top: 42%; left: 28%;" data-toggle="modal" data-target="#projectsModal"></div>
+            <div class="tooltip" style="top: 42%; left: 28%;">Projects</div>
+            
+            <div class="pin" style="top: 84%; left: 90%;" data-toggle="modal" data-target="#contactsModal"></div>
+            <div class="tooltip" style="top: 84%; left: 90%;">Contacts</div>
+        </div>
+
+        <!-- About Me Modal -->
+        <div class="modal fade" id="aboutMeModal" tabindex="-1" role="dialog" aria-labelledby="aboutMeModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg" role="document" style="max-width: 90%; width: 100%; margin-top: 50px; height: 85vh;">
+            <div class="modal-content">
+                <div class="modal-header">
+                <h5 class="modal-title" id="aboutMeModalLabel">About Me</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                </div>
+                <div class="modal-body">
+                Aqui está a informação sobre mim. Você pode adicionar o texto ou informações que desejar aqui.
+                </div>
+                <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+            </div>
+        </div>
+
+        <!-- Projects Modal -->
+        <div class="modal fade" id="projectsModal" tabindex="-1" role="dialog" aria-labelledby="projectsModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg" role="document" style="max-width: 90%; width: 100%; margin-top: 50px; height: 85vh;">
+            <div class="modal-content">
+                <div class="modal-header">
+                <h5 class="modal-title" id="projectsModalLabel">Projects</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                </div>
+                <div class="modal-body">
+                Aqui está a informação sobre os meus projetos. Você pode adicionar o texto ou informações que desejar aqui.
+                </div>
+                <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+            </div>
+        </div>
+
+        <!-- Contacts Modal -->
+        <div class="modal fade" id="contactsModal" tabindex="-1" role="dialog" aria-labelledby="contactsModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg" role="document" style="max-width: 90%; width: 100%; margin-top: 50px; height: 85vh;">
+            <div class="modal-content">
+                <div class="modal-header">
+                <h5 class="modal-title" id="contactsModalLabel">Contacts</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                </div>
+                <div class="modal-body">
+                Aqui está a informação sobre os meus contatos. Você pode adicionar o texto ou informações que desejar aqui.
+                </div>
+                <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+            </div>
+        </div>
+
+
+
+    </main>
+
+    <!-- Footer Section -->
+    <footer>
+        <p>&copy; 2024 Alexandra Torres. All rights reserved.</p>
+    </footer>
+
+</body>
+
+</html>
