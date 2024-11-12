@@ -7,6 +7,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+    overflow: hidden; /* Impede o scroll durante a intro */
 }
 
 body, p, h1, h2, h3, h4, h5, h6, .tooltip {
@@ -36,26 +37,6 @@ body, p, h1, h2, h3, h4, h5, h6, .tooltip {
     position: relative; /* Permite que os pins se posicionem relativamente ao mapa */
 }
 
-/*Estilo para o Footer*/
-/* footer {
-    background-color: #000000;
-    color: #f0f0f0;
-    padding-top: 10px;
-    padding-bottom: 0px;
-    width: 100%;
-    text-align: center;
-} */
-
-/* footer {
-    background-color: #000000; /* Cor de fundo preto */
-    /*color: #ffffff;*/ /* Texto em branco */
-    /* padding: 20px;
-    width: 100%;
-    text-align: center;
-    position: relative;
-    bottom: 0; */
-/* } */ 
-
 footer {
     background-color: #000000;
     color: #f0f0f0;
@@ -67,94 +48,6 @@ footer {
     bottom: 0; /* Posiciona na parte inferior */
     left: 0;
     z-index: 10; /* Certifique-se que está acima de outros elementos */
-}
-
-
-/*Code-Pen Space and Stars Animation*/
-/* #animation-container {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 1;
-    overflow: hidden;
-    pointer-events: none;
-}
-
-.circle {
-    position: absolute;
-    border-radius: 50%;
-    background: rgba(255, 255, 255, 0.03);
-    animation: move 30s linear infinite;
-    z-index: 1;
-}
-
-@keyframes move {
-    0% {
-        transform: translateY(0) scale(1);
-    }
-    50% {
-        transform: translateY(-600px) scale(0.8);
-    }
-    100% {
-        transform: translateY(0) scale(1);
-    }
-} */
-
-html, body {
-    width: 100%;
-    height: 100%;
-    margin: 0;
-}
-
-#sky {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-    z-index: 0;
-}
-
-.star {
-    opacity: 0;
-    position: absolute;
-    background: white;
-    box-shadow: 0px 0px 80px 0px rgb(255, 255, 255);
-    border-radius: 100%;
-    transform-origin: center; /* Ajuste do ponto de origem */
-    animation-timing-function: linear;
-    animation-iteration-count: infinite;
-    animation-delay: -30s; /* Reduzido para aumentar a velocidade inicial */
-    animation-duration: 5s; /* Diminua este valor para aumentar a velocidade */
-}
-
-.size-1 {
-    width: 1px;
-    height: 1px;
-}
-
-.size-2 {
-    width: 2px;
-    height: 2px;
-}
-
-@keyframes fade {
-    0% { opacity: 0; }
-    50% { opacity: 1; }
-    100% { opacity: 0; }
-}
-
-@keyframes anim {
-    0% { transform: translate(0, 0); }
-    100% {
-        transform: translate(
-            calc(100vw * (random() - 0.5)),
-            calc(100vh * (random() - 0.5))
-        );
-    }
 }
 
 /*PIN*/
@@ -214,7 +107,7 @@ html, body {
     white-space: nowrap;
     display: none; /* Esconde o balão inicialmente */
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-    z-index: 2,
+    z-index: 2;
 }
 
 /* Mostrar o Balão ao passar o mouse */
@@ -247,17 +140,6 @@ html, body {
     opacity: 1;
 }
 
-.pin {
-    position: absolute;
-    width: 20px;
-    height: 20px;
-    background-color: #E81E25;
-    border-radius: 50%;
-    box-shadow: 0 0 15px rgba(232, 30, 37, 0.8);
-    transform: translate(-50%, -50%);
-    cursor: pointer;
-}
-
 /* GIF INTRO */
 #intro-container {
     position: fixed;
@@ -265,12 +147,13 @@ html, body {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: black;
+    background: #000 url(http://www.script-tutorials.com/demos/360/images/stars.png) repeat top center;
     display: flex;
     align-items: center;
     justify-content: center;
     z-index: 9999;
     transition: opacity 3s ease-in-out;
+    overflow: hidden; /* Impede o conteúdo de vazar */
 }
 
 #intro-gif {
@@ -284,34 +167,170 @@ html, body {
     visibility: hidden;
 }
 
-#intro-sky {
-    position: absolute;
+/* Fundo de estrelas no site */
+.starry-background {
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
+    background: #000 url(http://www.script-tutorials.com/demos/360/images/stars.png) repeat top center;
+    z-index: -1;
+}
+
+/* Efeito de cintilação das estrelas */
+.twinkling {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: transparent url(http://www.script-tutorials.com/demos/360/images/twinkling.png) repeat top center;
+    z-index: -1;
+    animation: move-twink-back 200s linear infinite;
+}
+
+@keyframes move-twink-back {
+    from {background-position: 0 0;}
+    to {background-position: -10000px 5000px;}
+}
+
+/* Carrossel ABOUT ME */
+.modal-dialog.modal-xl {
+    max-width: 95%;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.modal-body {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+#photo-carousel {
+    flex: 1;
+    max-width: 400px; /* Tamanho fixo para o carrossel */
+    margin: 0 auto;
+}
+
+.carousel-inner img {
+    width: 100%;
+    height: 300px; /* Altura fixa para todas as imagens do carrossel */
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.modal-body > div:nth-child(2) {
+    flex: 2;
+    padding-left: 20px;
+}
+
+/* Responsividade para Mobile */
+@media (max-width: 768px) {
+    .modal-dialog.modal-xl {
+        max-width: 100%;
+        width: 95%;
+    }
+    .modal-body {
+        flex-direction: column;
+        text-align: center;
+    }
+    #photo-carousel {
+        max-width: 100%;
+        margin-bottom: 20px;
+    }
+    .modal-body > div:nth-child(2) {
+        padding-left: 0;
+    }
+}
+
+/*Formatação do Model*/
+.projects-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.project-row {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+.project-circle {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
     overflow: hidden;
-    z-index: -1; /* Estrelas ficam atrás do GIF */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #333; /* Cor de fundo caso a imagem não carregue */
 }
 
-.star {
-    opacity: 0;
-    position: absolute;
-    background: white;
-    box-shadow: 0px 0px 20px 0px rgb(255, 255, 255);
-    border-radius: 100%;
-    transform-origin: center;
-    animation-timing-function: linear;
-    animation-iteration-count: infinite;
-    animation-delay: -30s;
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 2 colunas */
+    gap: 30px;
+    justify-content: center;
+    align-items: start;
+    width: 100%;
+    margin: 0 auto;
 }
 
-.size-1 {
-    width: 1px;
-    height: 1px;
+.project-card {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    background: #000000;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+    max-width: 500px;
+    margin: 0 auto;
 }
 
-.size-2 {
-    width: 2px;
-    height: 2px;
+.project-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.project-info {
+    flex-grow: 1;
+    text-align: left;
+}
+
+.project-info h6 {
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.project-info p {
+    margin-bottom: 10px;
+}
+
+.btn-secondary {
+    margin-top: 10px;
+}
+
+/* Responsividade para Mobile */
+@media (max-width: 768px) {
+    .projects-grid {
+        grid-template-columns: 1fr; /* Muda para uma coluna em telas menores */
+    }
+    .project-card {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    .project-info {
+        margin-top: 10px;
+    }
 }
