@@ -49,3 +49,40 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 });
+
+// PIN interactivo
+document.addEventListener('DOMContentLoaded', function() {
+    const pin = document.getElementById('interactive-pin');
+    const balloon = document.getElementById('interactive-balloon');
+    let clickCount = 0;
+
+    pin.addEventListener('mouseenter', function() {
+        if (clickCount < 2) {
+            const randomTop = Math.random() * 80 + 10; // Posição aleatória no ecrã
+            const randomLeft = Math.random() * 80 + 10; // Posição aleatória no ecrã
+
+            pin.style.top = randomTop + '%';
+            pin.style.left = randomLeft + '%';
+            clickCount++;
+        } else if (clickCount === 2) {
+            balloon.style.display = 'block'; // Mostra o balão
+            setTimeout(() => {
+                balloon.style.display = 'none'; // Esconde o balão após alguns segundos
+            }, 2000);
+            clickCount = 0; // Reinicia o contador
+        }
+    });
+});
+
+//PIN para mensagens
+document.querySelectorAll('.motivational-pin').forEach(pin => {
+    pin.addEventListener('mouseenter', () => {
+        pin.style.transform = 'scale(1.2)'; // Aumenta ligeiramente o tamanho ao passar o cursor
+    });
+
+    pin.addEventListener('mouseleave', () => {
+        pin.style.transform = 'scale(1)'; // Volta ao tamanho original
+    });
+});
+
+// GLOBE

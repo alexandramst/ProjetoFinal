@@ -8,6 +8,9 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="css/styles.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://unpkg.com/globe.gl@3.5.3"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script src="js/main.js" defer></script>
 
@@ -52,8 +55,37 @@
             <div class="pin" id="contacts-pin" data-toggle="modal" data-target="#contactsModal">
                 <div class="balloon">Contacts</div>
             </div>
+
+            <div class="motivational-pin" id="dream-pin" data-message="Dream"></div>
+            <div class="motivational-pin" id="be-yourself-pin" data-message="Be Yourself"></div>
+            <div class="motivational-pin" id="be-creative-pin" data-message="Be Creative"></div>
+            <div class="motivational-pin" id="be-brave-pin" data-message="Be Brave"></div>
+            <div class="motivational-pin" id="be-fearless-pin" data-message="Be Fearless"></div>
+            <div class="motivational-pin" id="be-resilient-pin" data-message="Be Resilient"></div>
+            <div class="motivational-pin" id="be-kind-pin" data-message="Be Kind"></div>
+            <div class="motivational-pin" id="be-positive-pin" data-message="Be Positive"></div>
+            <div class="motivational-pin" id="be-strong-pin" data-message="Be Strong"></div>
+            <div class="motivational-pin" id="be-passionate-pin" data-message="Be Passionate"></div>
+            <div class="motivational-pin" id="be-bold-pin" data-message="Be Bold"></div>
+            <div class="motivational-pin" id="stay-humble-pin" data-message="Stay Humble"></div>
+            <div class="motivational-pin" id="be-grateful-pin" data-message="Be Grateful"></div>
+            <div class="motivational-pin" id="keep-going-pin" data-message="Keep Going"></div>
+            <div class="motivational-pin" id="stay-curious-pin" data-message="Stay Curious"></div>
+            <div class="motivational-pin" id="embrace-change-pin" data-message="Embrace Change"></div>
+            <div class="motivational-pin" id="stay-strong-pin" data-message="Stay Strong"></div>
+            <!-- Adicione mais pins conforme desejar -->
+            
+            <!-- Believe in yourself pin-heart -->
+            <div class="heart-pin" id="believe-yourself-pin" data-message="Believe in Yourself">
+                <i class="fas fa-heart"></i>
+            </div>
         </div>
 
+        <!-- Pin interativo -->
+        <div class="pin" id="interactive-pin">
+            <div class="balloon" id="interactive-balloon">You can't catch me!</div>
+        </div>
+        
 
         <!-- About Me Modal -->
         <div class="modal fade" id="aboutMeModal" tabindex="-1" role="dialog" aria-labelledby="aboutMeModalLabel" aria-hidden="true">
@@ -101,9 +133,9 @@
                             </div>
                         </div>
                     </div>
-                    <div class="modal-footer">
+                    <!-- <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    </div>
+                    </div> -->
                 </div>
             </div>
         </div>
@@ -128,7 +160,7 @@
                                 <div class="project-info">
                                     <h6>PORTFÓLIO</h6>
                                     <p>Projeto pessoal para a divulgação de todos os projetos concretizados, as ferramentas utilizadas para a sua concretização.</p>
-                                    <button class="btn btn-secondary" data-toggle="modal" data-target="#project1DetailsModal">See More...</button>
+                                    <button class="btn btn-secondary" data-toggle="modal" data-target="#project1DetailsModal">See More</button>
                                 </div>
                             </div>
                             <!-- Project 2 - Coming Soon -->
@@ -238,6 +270,8 @@
             </div>
         </div> -->
 
+        <!--GLOBE-->
+        <div id="globe-container"></div>
 
     </main>
 
