@@ -8,9 +8,6 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="css/styles.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-    <script src="https://unpkg.com/globe.gl@3.5.3"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script src="js/main.js" defer></script>
 
@@ -85,7 +82,6 @@
         <div class="pin" id="interactive-pin">
             <div class="balloon" id="interactive-balloon">You can't catch me!</div>
         </div>
-        
 
         <!-- About Me Modal -->
         <div class="modal fade" id="aboutMeModal" tabindex="-1" role="dialog" aria-labelledby="aboutMeModalLabel" aria-hidden="true">
@@ -133,9 +129,9 @@
                             </div>
                         </div>
                     </div>
-                    <!-- <div class="modal-footer">
+                    <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    </div> -->
+                    </div>
                 </div>
             </div>
         </div>
@@ -160,7 +156,7 @@
                                 <div class="project-info">
                                     <h6>PORTFÓLIO</h6>
                                     <p>Projeto pessoal para a divulgação de todos os projetos concretizados, as ferramentas utilizadas para a sua concretização.</p>
-                                    <button class="btn btn-secondary" data-toggle="modal" data-target="#project1DetailsModal">See More</button>
+                                    <button class="btn btn-secondary" data-toggle="modal" data-target="#project1DetailsModal">See More...</button>
                                 </div>
                             </div>
                             <!-- Project 2 - Coming Soon -->
@@ -213,7 +209,7 @@
                         <div class="contacts-container">
                             <!-- Contact Form -->
                             <div class="contact-form">
-                                <form>
+                                <form id="contactForm">
                                     <div class="form-group">
                                         <label for="name">Name</label>
                                         <input type="text" class="form-control" id="name" placeholder="Your Name" required>
@@ -232,6 +228,40 @@
                                     </div>
                                     <button type="submit" class="btn btn-primary btn-send">Send Message</button>
                                 </form>
+
+                                <script
+                                    type="text/javascript"
+                                    src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"
+                                    ></script>
+                                    
+                                    <script>
+                                    (function () {
+                                        emailjs.init("hpi6M-2nsHcm-zK_S");
+                                    })();
+                                    
+                                    document
+                                        .getElementById("contactForm")
+                                        .addEventListener("submit", function (e) {
+                                        e.preventDefault();
+                                    
+                                        emailjs
+                                            .send("service_vh2no7h", "template_lynadzk", {
+                                            name: document.getElementById("name").value,
+                                            email: document.getElementById("email").value,
+                                            subject: document.getElementById("subject").value,
+                                            message: document.getElementById("message").value,
+                                            })
+                                            .then(
+                                            function (response) {
+                                                alert("Email sent successfully!");
+                                            },
+                                            function (error) {
+                                                alert("Failed to send email. Please try again.");
+                                                console.error("EmailJS error:", error);
+                                            }
+                                            );
+                                        });
+                                    </script>
                             </div>
                             <!-- Quick Info and Social Media -->
                             <div class="contact-info">
@@ -270,8 +300,6 @@
             </div>
         </div> -->
 
-        <!--GLOBE-->
-        <div id="globe-container"></div>
 
     </main>
 

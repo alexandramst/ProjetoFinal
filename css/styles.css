@@ -1,7 +1,7 @@
 body {
     background-color: #000;
     color: #f0f0f0;
-    font-family: 'Roboto', sans-serif;
+    font-family: Arial, sans-serif;
     margin: 0;
     min-height: 100vh;
     display: flex;
@@ -20,10 +20,13 @@ body, p, h1, h2, h3, h4, h5, h6, .tooltip {
 }
 
 #map-container {
-    position: relative; /* Garante que os pins se posicionem em relação ao mapa */
     width: 100%;
-    max-width: 1200px;
-    margin: 0 auto;
+    max-width: 1200px; /* Limite máximo para o tamanho do mapa */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative; /* Para permitir o posicionamento absoluto do pin dentro do mapa */
+    margin: 0;
 }
 
 #world-map {
@@ -50,11 +53,11 @@ footer {
 /*PIN*/
 .pin {
     position: absolute;
-    width: 50px;
-    height: 50px;
+    width: 40px;
+    height: 40px;
     background-color: #E81E25;
     border-radius: 50%;
-    box-shadow: 0 0 70px 40px rgba(232, 30, 37, 1), 0 0 120px 60px rgba(232, 30, 37, 0.7); /* glow */
+    box-shadow: 0 0 50px 20px rgba(232, 30, 37, 1), 0 0 100px 40px rgba(232, 30, 37, 0.7); /* glow */
     transform: translate(-50%, -50%);
     border: 2px solid #ffffff; /* Borda branca para destaque */
     animation: glow 2s ease-in-out infinite; /* Animação de glow pulsante */
@@ -206,15 +209,15 @@ footer {
 }
 
 #photo-carousel {
-    width: 100%; /* Garante que o carrossel se ajuste ao modal */
-    max-width: 500px; /* Define uma largura máxima */
-    margin: 0 auto; /* Centraliza o carrossel */
+    flex: 1;
+    max-width: 400px; /* Tamanho fixo para o carrossel */
+    margin: 0 auto;
 }
 
 .carousel-inner img {
-    max-height: 400px; /* Define uma altura máxima para as imagens */
-    width: auto; /* Mantém a proporção da largura */
-    object-fit: contain; /* Evita cortar as imagens */
+    width: 100%;
+    height: 300px; /* Altura fixa para todas as imagens do carrossel */
+    object-fit: cover;
     border-radius: 10px;
 }
 
@@ -234,13 +237,11 @@ footer {
         text-align: center;
     }
     #photo-carousel {
-        max-width: 100%; /* Permite que o carrossel se ajuste à largura da tela */
+        max-width: 100%;
+        margin-bottom: 20px;
     }
     .modal-body > div:nth-child(2) {
         padding-left: 0;
-    }
-    .carousel-inner img {
-        max-height: 250px; /* Diminui a altura máxima para telas menores */
     }
 }
 
@@ -279,31 +280,23 @@ footer {
 .projects-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
-}
-
-
-@media (max-width: 1024px) { /* Tablet */
-    .projects-grid {
-        grid-template-columns: 1fr; /* Coloca cada card em uma linha */
-        gap: 15px; /* Ajusta o espaçamento */
-    }
-}
-
-@media (max-width: 768px) { /* Mobile */
-    .projects-grid {
-        gap: 10px; /* Reduz o espaçamento ainda mais */
-    }
+    gap: 30px;
+    justify-content: center;
+    align-items: start;
+    width: 100%;
+    margin: 0 auto;
 }
 
 .project-card {
     display: flex;
-    flex-direction: row; /* Garante que a imagem e o texto estejam na mesma linha */
-    align-items: center; /* Alinha verticalmente os elementos */
-    gap: 20px; /* Espaço entre a imagem e o texto */
-    padding: 20px;
+    align-items: center;
+    gap: 20px;
     background: #000000;
+    padding: 20px;
     border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+    max-width: 100%;
 }
 
 .project-card.reverse {
@@ -311,66 +304,44 @@ footer {
 }
 
 .project-image {
-    width: 150px; /* Ajuste conforme necessário */
+    width: 150px;
     height: 150px;
     object-fit: cover;
     border-radius: 50%;
 }
 
 .project-info {
-    flex: 1; /* Garante que o texto ocupe o restante espaço disponível */
-    text-align: center; /* Alinha o texto à esquerda */
+    flex-grow: 1;
+    text-align: center;
 }
 
 .project-info h6 {
-    margin-bottom: 10px;
+    margin-bottom: 5px;
     font-weight: bold;
-    color: #A2A6A2; /* Define a cor desejada */
 }
 
-
 .project-info p {
-    font-size: 14px; /* Ajusta o tamanho conforme necessário */
+    margin-bottom: 10px;
+    margin-left: 20px;
+    margin-right: 20px;
 }
 
 .btn-secondary {
     margin-top: 10px;
 }
 
-/* Responsividade */
-@media (max-width: 1024px) { /* Tablet */
+/* Responsividade para Mobile */
+@media (max-width: 768px) {
+    .projects-grid {
+        grid-template-columns: 1fr;
+    }
+
     .project-card {
-        flex-direction: column; /* Empilha imagem e texto */
-        align-items: center; /* Centraliza os itens */
-        text-align: center; /* Centraliza o texto */
-    }
-
-    .project-image {
-        width: 120px; /* Ajusta o tamanho para dispositivos menores */
-        height: 120px;
-        margin-bottom: 15px; /* Adiciona espaçamento entre imagem e texto */
-    }
-
-    .project-info {
-        width: 100%; /* O texto ocupa a largura total */
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
     }
 }
-
-@media (max-width: 768px) { /* Mobile */
-    .project-card {
-        padding: 15px; /* Reduz o padding para telas menores */
-    }
-
-    .project-image {
-        width: 100px; /* Reduz ainda mais o tamanho */
-        height: 100px;
-    }
-
-    .project-info p {
-        font-size: 14px; /* Diminui o tamanho do texto para melhor leitura */
-    }
-}
-
 /* PIN interactivo */
 
 #interactive-pin {
@@ -403,7 +374,6 @@ footer {
 }
 
 /* PIN mensagens */
-/* Estilos comuns para todos os pins */
 .motivational-pin {
     position: absolute;
     width: 20px;
@@ -411,10 +381,10 @@ footer {
     border-radius: 50%;
     cursor: pointer;
     border: 2px solid #ffffff;
+    animation: glow 2s infinite;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-    animation: glow 2s infinite; /* Animação de glow */
+    animation: glow 2s infinite;
 }
-
 
 /* Definição de cores diferentes para cada pin */
 #dream-pin {
@@ -515,7 +485,7 @@ footer {
 #embrace-change-pin {
     background-color: #92A8D1;
     top: 40%;
-    left: 25%;
+    left: 15%;
 }
 
 #stay-strong-pin {
@@ -533,15 +503,10 @@ footer {
     /* Sem cor de fundo ou dimensões para garantir que o contêiner não apareça */
 }
 
-.heart-pin {
-    position: absolute;
-    top: 50%; /* Ajuste conforme necessário */
-    left: 50%; /* Ajuste conforme necessário */
-    transform: translate(-50%, -50%); /* Para centralizar a posição */
-    font-size: 40px;
+.heart-pin i {
+    font-size: 20px; /* Ajuste o tamanho conforme necessário */
     color: #F7CAC9; /* Cor do coração */
-    cursor: pointer;
-    filter: drop-shadow(0 0 10px rgba(247, 202, 201, 0.7)); /* Efeito de glow */
+    filter: drop-shadow(0 0 10px rgba(247, 202, 201, 0.7)); /* Efeito de glow diretamente no coração */
 }
 
 /* Balão de mensagem */
@@ -582,5 +547,3 @@ footer {
 .motivational-pin:hover::after {
     display: block;
 }
-
-/* GLOBE */
