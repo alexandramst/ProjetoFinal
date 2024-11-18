@@ -1,7 +1,7 @@
 body {
     background-color: #000;
     color: #f0f0f0;
-    font-family: Arial, sans-serif;
+    font-family: 'Roboto', sans-serif;
     margin: 0;
     min-height: 100vh;
     display: flex;
@@ -16,39 +16,42 @@ body, p, h1, h2, h3, h4, h5, h6, .tooltip {
 
 #logo {
     max-width: 140px;
-    margin-top: 20px;
+    width: 20%;
+    margin-top: 10px;
 }
 
+/* Container do Mapa */
 #map-container {
     width: 100%;
-    max-width: 1200px; /* Limite máximo para o tamanho do mapa */
+    max-width: 1200px; /* Limite máximo para manter a responsividade */
+    margin: 0 auto;
+    position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
-    position: relative; /* Para permitir o posicionamento absoluto do pin dentro do mapa */
-    margin: 0;
+    padding-bottom: 60px; /* Adicionar espaço extra para o footer */
 }
 
+/* Imagem do Mapa */
 #world-map {
     width: 100%;
-    height: auto; /* Ajuste automático da altura mantendo proporção */
-    max-width: 90%;
+    height: auto;
     object-fit: contain;
-    position: relative; /* Permite que os pins se posicionem relativamente ao mapa */
+    position: relative;
 }
 
 footer {
     background-color: #000000;
     color: #f0f0f0;
-    padding-top: 10px;
-    padding-bottom: 10px; /* Ajustar o padding para uma altura mais confortável */
+    padding: 10px 0;
     width: 100%;
     text-align: center;
-    position: fixed; /* Garante que o footer fique fixo no final da página */
-    bottom: 0; /* Posiciona na parte inferior */
+    position: fixed; /* Fixar o footer na parte inferior da página */
+    bottom: 0;
     left: 0;
-    z-index: 10; /* Certifique-se que está acima de outros elementos */
+    z-index: 10;
 }
+
 
 /*PIN*/
 .pin {
@@ -279,20 +282,18 @@ footer {
 
 .projects-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 30px;
-    justify-content: center;
-    align-items: start;
-    width: 100%;
-    margin: 0 auto;
+    grid-template-columns: repeat(2, 1fr); /* Define 2 colunas em desktops */
+    gap: 20px; /* Espaço entre os elementos */
 }
 
 .project-card {
     display: flex;
     align-items: center;
+    flex-direction: row; /* Garante que a imagem e o texto estejam na mesma linha */
     gap: 20px;
     background: #000000;
-    padding: 20px;
+    padding: 10px;
+    margin: 10px;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s;
@@ -304,20 +305,24 @@ footer {
 }
 
 .project-image {
-    width: 150px;
-    height: 150px;
-    object-fit: cover;
+    width: 150px; /* Ajuste conforme necessário */
+    height: 150px; /* Ajuste conforme necessário */
+    object-fit: cover; /* Mantém a proporção sem distorcer */
     border-radius: 50%;
 }
 
 .project-info {
-    flex-grow: 1;
-    text-align: center;
+    flex: 1;
+    text-align: left;
 }
 
 .project-info h6 {
     margin-bottom: 5px;
     font-weight: bold;
+}
+
+.project-info h6 {
+    color: #A2A6A2; /* Define a cor desejada */
 }
 
 .project-info p {
@@ -330,16 +335,46 @@ footer {
     margin-top: 10px;
 }
 
-/* Responsividade para Mobile */
-@media (max-width: 768px) {
+@media (max-width: 1024px) { /* Tablet */
     .projects-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr; /* Coloca cada card em uma linha */
+        gap: 15px; /* Ajusta o espaçamento */
     }
 
     .project-card {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
+        flex-direction: column; /* Empilha imagem e texto */
+        align-items: center; /* Centraliza os itens */
+        text-align: center; /* Centraliza o texto */
+    }
+
+    .project-image {
+        width: 120px; /* Ajusta o tamanho para dispositivos menores */
+        height: 120px;
+        margin-bottom: 15px; /* Adiciona espaçamento entre imagem e texto */
+    }
+
+    .project-info {
+        width: 100%; /* O texto ocupa a largura total */
+    }
+}
+
+/* Responsividade para Mobile */
+@media (max-width: 768px) { /* Mobile */
+    .projects-grid {
+        gap: 10px; /* Reduz o espaçamento ainda mais */
+    }
+    
+    .project-card {
+        padding: 15px; /* Reduz o padding para telas menores */
+    }
+
+    .project-image {
+        width: 100px; /* Reduz ainda mais o tamanho */
+        height: 100px;
+    }
+
+    .project-info p {
+        font-size: 14px; /* Diminui o tamanho do texto para melhor leitura */
     }
 }
 /* PIN interactivo */
@@ -546,4 +581,67 @@ footer {
 
 .motivational-pin:hover::after {
     display: block;
+}
+
+/* GLOBE */
+
+/* Garantir que o body ocupe toda a altura */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden; /* Evitar scroll horizontal */
+}
+
+
+
+main {
+    min-height: calc(100vh - 60px); /* O conteúdo ocupa todo o espaço disponível menos o footer */
+    position: relative;
+    overflow: hidden; /* Impede o conteúdo de vazar */
+}
+
+/* Ajuste do Globo para centralização e responsividade */
+#globe-container {
+    display: none; /* Inicialmente escondido, só mostrado em mobile/tablet */
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: calc(100vh - 60px); /* Ajusta o globo para ocupar o espaço da tela menos o footer */
+    position: relative;
+}
+
+/* Ocultar o mapa em telas menores (mobile e tablet) */
+@media (max-width: 1024px) {
+    #map-container {
+        display: none; /* Esconde o mapa em mobile e tablet */
+    }
+
+    #globe-container {
+        display: flex; /* Mostra o globo em dispositivos menores */
+        width: 100%;
+        height: calc(100vh - 60px); /* Ajusta o globo para ocupar o espaço da tela menos o footer */
+    }
+}
+
+/* Ajustes específicos para tablets */
+@media (min-width: 769px) and (max-width: 1024px) {
+    #globe-container {
+        height: calc(100vh - 80px); /* Altura ajustada para tablets */
+    }
+
+    #logo {
+        max-width: 120px; /* Aumentar um pouco o logo para tablets */
+    }
+}
+
+/* Ajustes específicos para mobiles */
+@media (max-width: 768px) {
+    #globe-container {
+        height: calc(100vh - 80px); /* Ajustar altura para garantir que o globo não sobreponha o rodapé */
+    }
+
+    #logo {
+        max-width: 80px; /* Tamanho menor para dispositivos móveis */
+    }
 }

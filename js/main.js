@@ -86,3 +86,65 @@ document.querySelectorAll('.motivational-pin').forEach(pin => {
 });
 
 // GLOBE
+// Inicializar o Globo apenas em dispositivos móveis e tablets
+// Inicializar o Globo apenas em dispositivos móveis e tablets
+document.addEventListener('DOMContentLoaded', function () {
+    const globeContainer = document.getElementById('globe-container');
+
+    // Inicializar o globo com a biblioteca Globe.gl
+    const globe = Globe()
+        (globeContainer)
+        .globeImageUrl('//unpkg.com/three-globe/example/img/earth-dark.jpg') // Textura do globo escuro
+        .bumpImageUrl('//unpkg.com/three-globe/example/img/earth-topology.png') // Textura de relevo
+        .backgroundImageUrl('//unpkg.com/three-globe/example/img/night-sky.png') // Fundo de estrelas
+        .pointsData([
+            { lat: 38.7223, lng: -9.1393, label: 'About Me', modalId: '#aboutMeModal' }, // Portugal
+            { lat: 40.7128, lng: -74.0060, label: 'Projects', modalId: '#projectsModal' }, // Nova York
+            { lat: -41.2865, lng: 174.7762, label: 'Contacts', modalId: '#contactsModal' }, // Nova Zelândia
+            { lat: 0, lng: 0, label: '😊', modalId: null, interactive: true } // Pin interativo
+        ]) // Adicionando pontos no globo com as coordenadas geográficas
+        .pointAltitude(0.01) // Altitude dos pins em relação à superfície do globo
+        .pointColor(point => point.interactive ? '#00ff00' : '#E81E25') // Cor dos pins, interativo em verde
+        .pointLabel('label') // Rótulo dos pins
+        .pointRadius(3) // Aumentar o tamanho dos pins
+        .onPointClick((point) => {
+            if (point.modalId) {
+                // Abrir o modal correspondente ao clicar em um pin
+                $(point.modalId).modal('show');
+            } else if (point.interactive) {
+                // Lógica para o pin interativo
+                interactivePinClickHandler(point);
+            }
+        })
+        .width(window.innerWidth)
+        .height(window.innerHeight - 60); // Ajuste para deixar espaço para o rodapé
+
+    // Configuração inicial da visão
+    globe.pointOfView({ altitude: 2.5 });
+
+    // Contador de cliques para o pin interativo
+    let interactivePinClickCount = 0;
+
+    // Função para tratar o clique no pin interativo
+    function interactivePinClickHandler(point) {
+        interactivePinClickCount++;
+        if (interactivePinClickCount < 3) {
+            // Atualizar posição do pin para uma localização aleatória
+            point.lat = Math.random() * 180 - 90; // Latitude aleatória entre -90 e 90
+            point.lng = Math.random() * 360 - 180; // Longitude aleatória entre -180 e 180
+            globe.pointsData([...globe.pointsData()]); // Atualizar os pontos do globo
+        } else {
+            alert("You can't catch me!");
+            interactivePinClickCount = 0; // Reiniciar o contador
+        }
+    }
+
+    // Função para ajustar a responsividade
+    function handleResize() {
+        globe.width(window.innerWidth).height(window.innerHeight - 60);
+    }
+
+    // Ajustar o tamanho ao carregar a página e ao redimensionar
+    window.addEventListener('resize', handleResize);
+    handleResize();
+});
