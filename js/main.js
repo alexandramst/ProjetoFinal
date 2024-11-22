@@ -36,18 +36,7 @@ window.addEventListener('load', function() {
 			introContainer.style.display = 'none';
 			document.body.style.overflow = 'auto'; // Habilita o scroll após a intro
 		}, 1000);
-	}, 4000); // 4000ms = 4 segundos para exibir o GIF inicialmente
-});
-
-// Ajusta o tamanho do carrossel quando o modal é mostrado
-document.addEventListener('DOMContentLoaded', function() {
-    $('#aboutMeModal').on('shown.bs.modal', function() {
-        const carousel = document.getElementById('photo-carousel');
-        if (carousel) {
-            carousel.style.width = '100%';
-            carousel.style.height = '300px';
-        }
-    });
+	}, 1000); // 1000ms = 1 segundos para exibir o GIF inicialmente
 });
 
 // PIN interactivo
@@ -86,7 +75,6 @@ document.querySelectorAll('.motivational-pin').forEach(pin => {
 });
 
 // GLOBE
-// Inicializar o Globo apenas em dispositivos móveis e tablets
 // Inicializar o Globo apenas em dispositivos móveis e tablets
 document.addEventListener('DOMContentLoaded', function () {
     const globeContainer = document.getElementById('globe-container');
@@ -148,5 +136,3 @@ document.addEventListener('DOMContentLoaded', function () {
     window.addEventListener('resize', handleResize);
     handleResize();
 });
-
-

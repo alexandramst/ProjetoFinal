@@ -20,7 +20,7 @@ body, p, h1, h2, h3, h4, h5, h6, .tooltip {
     margin-top: 10px;
 }
 
-/* Container do Mapa */
+/* Map Container */
 #map-container {
     width: 100%;
     max-width: 1200px; /* Limite máximo para manter a responsividade */
@@ -33,7 +33,7 @@ body, p, h1, h2, h3, h4, h5, h6, .tooltip {
     max-height: 80vh;
 }
 
-/* Imagem do Mapa */
+/* Map Image */
 #world-map {
     width: 100%;
     height: auto;
@@ -48,7 +48,7 @@ footer {
     padding: 10px 0;
     width: 100%;
     text-align: center;
-    position: fixed; /* Fixar o footer na parte inferior da página */
+    position: fixed;
     bottom: 0;
     left: 0;
     z-index: 10;
@@ -69,23 +69,23 @@ footer {
     cursor: pointer; /* Mostra que o elemento é clicável */
 }
 
-/* Posicionamento Responsivo dos Pins */
+/* PINS Positions*/
 #about-pin {
-    top: 35%;  /* Ajuste conforme necessário */
+    top: 35%;  
     left: 44%;
 }
 
 #projects-pin {
-    top: 35%;  /* Ajuste conforme necessário */
+    top: 35%; 
     left: 26%;
 }
 
 #contacts-pin {
-    top: 84%;  /* Ajuste conforme necessário */
+    top: 84%; 
     left: 95%;
 }
 
-/* Animação de Glow */
+
 @keyframes glow {
     0% {
         box-shadow: 0 0 10px rgba(232, 30, 37, 0.5);
@@ -98,10 +98,10 @@ footer {
     }
 }
 
-/* Balão de Conversa */
+/* Speech bubble */
 .balloon {
     position: absolute;
-    top: -40px; /* Posiciona o balão acima do pin */
+    top: -40px;
     left: 50%;
     transform: translateX(-50%);
     background: #ffffff;
@@ -110,23 +110,23 @@ footer {
     border-radius: 5px;
     font-size: 12px;
     white-space: nowrap;
-    display: none; /* Esconde o balão inicialmente */
+    display: none; 
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
     z-index: 2;
 }
 
-/* Mostrar o Balão ao passar o mouse */
+/* Show the ballon */
 .pin:hover .balloon {
     display: block;
 }
 
-/* CSS para o Modal */
-
+/* Modal */
 .modal-content {
-    background-color: #2f2f2f; /* Fundo do modal */
+    background-color: #2f2f2f; 
     border-radius: 10px;
     padding: 20px;
 }
+
 .tooltip {
     position: absolute;
     background: #fff;
@@ -159,7 +159,7 @@ footer {
     justify-content: center;
     z-index: 9999;
     transition: opacity 3s ease-in-out;
-    overflow: hidden; /* Impede o conteúdo de vazar */
+    overflow: hidden; 
 }
 
 #intro-gif {
@@ -173,7 +173,7 @@ footer {
     visibility: hidden;
 }
 
-/* Fundo de estrelas no site */
+/* Starry background */
 .starry-background {
     position: fixed;
     top: 0;
@@ -184,7 +184,7 @@ footer {
     z-index: -1;
 }
 
-/* Efeito de cintilação das estrelas */
+/* stars effect */
 .twinkling {
     position: fixed;
     top: 0;
@@ -201,132 +201,131 @@ footer {
     to {background-position: -10000px 5000px;}
 }
 
-/* Estilo para o modal "About Me" */
-/* Estilo padrão para DESKTOP */
+/* "About Me" -modal*/
 .modal-body {
     display: flex;
     align-items: center;
     justify-content: space-between;
     gap: 20px;
     padding: 20px;
-    text-align: left; /* Texto alinhado à esquerda */
+    text-align: left; 
 }
 
 .modal-content {
-    background-color: #2f2f2f; /* Fundo do modal */
+    background-color: #2f2f2f; 
     border-radius: 10px;
     padding: 20px;
 }
 
 @media (min-width: 1024px) {
     .modal-dialog {
-        max-width: 60%; /* Reduz a largura para desktops */
+        max-width: 60%; 
     }
 }
 
-/* Wrapper para o círculo */
+/* Wrapper */
 .about-image {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 300px; /* Tamanho do círculo em desktop */
-    height: 300px; /* Igual à largura para garantir formato circular */
-    border-radius: 50%; /* Garante o formato circular */
-    overflow: hidden; /* Garante que a imagem não ultrapasse o círculo */
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Sombra para destaque */
-    background-color: #000; /* Fundo para caso a imagem não carregue */
-    margin: 0 auto; /* Centraliza o círculo */
+    width: 300px; 
+    height: 300px; 
+    border-radius: 50%; 
+    overflow: hidden; 
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); 
+    background-color: #000; 
+    margin: 0 auto; 
 }
 
-/* Imagem dentro do círculo */
+/* Image inside the circle*/
 .about-image img {
-    width: 100%; /* Preenche completamente o wrapper */
-    height: 100%; /* Preenche completamente o wrapper */
-    object-fit: cover; /* Garante que a imagem cubra todo o círculo sem deformar */
+    width: 100%; 
+    height: 100%; 
+    object-fit: cover; 
 }
 
-/* Texto no modal */
+/* Modal text*/
 .about-text {
-    flex: 1; /* O texto ocupa o restante do espaço */
+    flex: 1; 
 }
 
 .about-text p {
     font-size: 16px;
     line-height: 1.8;
     color: #f0f0f0;
-    text-align: justify; /* Justifica o texto */
-    margin-bottom: 20px; /* Espaçamento abaixo do parágrafo */
+    text-align: justify; 
+    margin-bottom: 20px; 
 }
 
 .about-text a.btn-secondary {
-    font-size: 14px; /* Ajuste o tamanho do texto */
-    padding: 8px 15px; /* Ajuste o padding */
-    background-color: #000000; /* Cor de fundo diferente */
-    color: #fff; /* Cor do texto */
+    font-size: 14px; 
+    padding: 8px 15px; 
+    background-color: #000000; 
+    color: #fff; 
     border-radius: 5px;
-    text-transform: uppercase; /* Transforma o texto em maiúsculas */
+    text-transform: uppercase; 
     transition: transform 0.3s, background-color 0.3s ease;
 }
 
 .about-text a.btn-secondary:hover {
     background-color: #4e504e;
-    transform: scale(1.1); /* Efeito de zoom ao passar o rato */
+    transform: scale(1.1); 
 }
 
 @media (min-width: 1025px) {
     header {
-        margin-bottom: 20px; /* Adiciona espaço entre o logotipo e o mapa */
+        margin-bottom: 20px; 
     }
 
     #logo {
-        margin-bottom: 20px; /* Espaço adicional diretamente no logotipo */
+        margin-bottom: 20px; 
     }
 }
 
-/* Alinha o botão à direita em desktop */
-@media (min-width: 1025px) { /* Para telas maiores que tablets */
+/* Botton at right in desktop */
+@media (min-width: 1025px) { 
     .about-text {
-        text-align: right; /* Alinha o conteúdo do contêiner à direita */
+        text-align: right; 
     }
 }
 
-/* Responsividade para MOBILE e TABLET */
+/* MOBILE e TABLET */
 @media (max-width: 1024px) {
     .modal-body {
-        flex-direction: column; /* Empilha os elementos verticalmente */
+        flex-direction: column; 
         align-items: center;
-        text-align: center; /* Centraliza o texto */
+        text-align: center; 
         gap: 20px;
     }
 
     .about-image {
-        width: 200px; /* Tamanho reduzido do círculo */
-        height: 200px; /* Igual à largura */
+        width: 200px; 
+        height: 200px; 
     }
 
     .about-image img {
         width: 100%;
         height: 100%;
-        object-fit: cover; /* Mantém o ajuste ao círculo */
+        object-fit: cover; 
     }
 
     .about-text p {
-        font-size: 14px; /* Texto menor para dispositivos móveis */
-        text-align: justify; /* Justifica o texto em dispositivos móveis também */
+        font-size: 14px; 
+        text-align: justify;  
     }
 
-    /* Botão centralizado em mobile */
+    /* Botton for mobile */
     .about-text {
         text-align: center;
     }
 
     .about-text a.btn-secondary {
         font-size: 14px;
-        padding: 8px 15px; /* Botão menor */
+        padding: 8px 15px; 
     }
 }
 
-/*Formatação do Model*/
+/*Model*/
 #projectsModalLabel, #aboutMeModalLabel, #contactsModalLabel {
     text-align: center;
     width: 100%;
@@ -349,29 +348,29 @@ footer {
 }
 
 .project-circle {
-    background-color: transparent; /* Torna o fundo invisível */
+    background-color: transparent; 
 }
 
-/* Layout para os cards no modal de projetos */
+/* Layout for modal cards in projects */
 .projects-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Ajusta colunas automaticamente */
-    gap: 20px; /* Espaçamento entre os cards */
-    justify-content: center; /* Centraliza o conteúdo */
-    align-items: start; /* Alinha os itens no topo */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+    gap: 20px; 
+    justify-content: center; 
+    align-items: start;
     padding: 20px;
 }
 
-/* Estilo para os cards individuais */
+/* Style for individual cards */
 .project-card {
-    background-color: #000000; /* Fundo dos cards */
-    border-radius: 10px; /* Bordas arredondadas */
-    padding: 20px; /* Espaçamento interno */
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3); /* Sombra */
+    background-color: #000000; 
+    border-radius: 10px; 
+    padding: 20px; 
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3); 
     display: flex;
-    flex-direction: column; /* Conteúdo empilhado */
-    align-items: center; /* Centraliza horizontalmente */
-    text-align: center; /* Centraliza o texto */
+    flex-direction: column; 
+    align-items: center; 
+    text-align: center; 
     transition: transform 0.3s ease-in-out;
 }
 
@@ -379,127 +378,123 @@ footer {
     flex-direction: row-reverse;
 }
 
-/* Estilo para o contêiner quadrado */
+/* styles for square contêiner */
 .square-wrapper {
-    display: flex; /* Alinha a imagem ao centro */
+    display: flex; 
     justify-content: center;
     align-items: center;
-    width: 180px; /* Tamanho do quadrado */
-    height: 180px; /* Tamanho do quadrado */
-    background-color: #333; /* Cor de fundo do quadrado */
-    /* border-radius: 10px;  */
-    /* Bordas arredondadas do quadrado */
-    margin: 0 auto; /* Centraliza o quadrado dentro do card */
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3); /* Sombra para o quadrado */
+    width: 180px; 
+    height: 180px; 
+    background-color: #333; 
+    margin: 0 auto; 
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3); 
 }
-/* Ajuste das imagens dentro dos cards */
+/* Images inside the cards */
 .project-image {
     width: 140px;
     height: 140px;
-    object-fit: cover; /* Garante o preenchimento correto */
-    border-radius: 50%; /* Faz a imagem redonda */
-    background-color: transparent; /* Remove o fundo cinza */
+    object-fit: cover; 
+    border-radius: 50%; 
+    background-color: transparent; 
 }
 
 .project-info {
-    margin-top: 10px; /* Adiciona espaço entre a imagem e o texto */
-    text-align: center; /* Centraliza o texto */
+    margin-top: 10px; 
+    text-align: center; 
 }
 
 .project-info h6 {
-    margin-top: 10px; /* Espaço extra entre a imagem e o título */
-    font-size: 16px; /* Ajuste do tamanho do título */
-    color: #333333; /* Cor do texto do título */
+    margin-top: 10px; 
+    font-size: 16px; 
+    color: #333333; 
 }
 
 
 .project-info p {
-    margin-top: 5px; /* Espaço entre o título e a descrição */
+    margin-top: 5px; 
     font-size: 14px;
-    color: #a2a6a2; /* Cor do texto da descrição */
-    line-height: 1.6; /* Melhor leitura */
+    color: #a2a6a2; 
+    line-height: 1.6; 
 }
 
 .btn-secondary {
     margin-top: 10px;
 }
 
-@media (max-width: 1024px) { /* Tablet */
+@media (max-width: 1024px) { 
     .projects-grid {
-        grid-template-columns: 1fr; /* Coloca cada card em uma linha */
-        gap: 15px; /* Ajusta o espaçamento */
+        grid-template-columns: 1fr; 
+        gap: 15px; 
     }
 
     .project-card {
-        background-color: #2f2f2f; /* Fundo dos cards */
-        border-radius: 10px; /* Bordas arredondadas */
-        width: 100%; /* Ocupa toda a largura do grid */
-        padding: 15px; /* Espaçamento interno */
-        margin: 10px 0; /* Espaçamento entre os cards */
-        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3); /* Sombra */
+        background-color: #2f2f2f; 
+        border-radius: 10px; 
+        width: 100%; 
+        padding: 15px; 
+        margin: 10px 0; 
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3); 
         display: flex;
-        flex-direction: column; /* Conteúdo empilhado */
-        align-items: center; /* Centraliza horizontalmente */
-        text-align: center; /* Centraliza texto */
+        flex-direction: column; 
+        align-items: center; 
+        text-align: center; 
         transition: transform 0.3s ease-in-out;
     }
 
     .project-image {
-        width: 120px; /* Ajusta o tamanho para dispositivos menores */
+        width: 120px; 
         height: 120px;
-        border-radius: 50%; /* Formato redondo */
-        margin-bottom: 10px; /* Adiciona espaçamento entre imagem e texto */
+        border-radius: 50%; 
+        margin-bottom: 10px; 
     }
 
 }
 
-/* Responsividade para mobile */
+/* mobile */
 @media (max-width: 768px) {
     .projects-grid {
-        grid-template-columns: 1fr; /* Apenas uma coluna */
-        gap: 15px; /* Reduz o espaço entre os cards */
+        grid-template-columns: 1fr; 
+        gap: 15px;
     }
 
     .project-card {
-        padding: 15px; /* Reduz o espaçamento interno */
+        padding: 15px; 
         background-color: #000000;
     }
 
     .project-image {
-        width: 120px; /* Imagens menores */
+        width: 120px; 
         height: 120px;
     }
 }
 
-/* Responsividade para desktop: 2 colunas */
+/* desktop responsiveness: 2 columns */
 @media (min-width: 1024px) {
     .projects-grid {
         display: grid;
-        grid-template-columns: repeat(2, 1fr); /* 2 colunas */
-        gap: 20px; /* Espaçamento entre os cards */
-        justify-content: center; /* Centraliza o conteúdo */
+        grid-template-columns: repeat(2, 1fr); 
+        gap: 20px; 
+        justify-content: center; 
     }
 
     .project-card {
-        max-width: 500px; /* Limita o tamanho dos cards */
-        align-items: center; /* Centraliza verticalmente */
-        text-align: center; /* Centraliza texto */
+        max-width: 500px; 
+        align-items: center; 
+        text-align: center; /
     }
 
     .project-image {
         width: 150px;
         height: 150px;
-        border-radius: 50%; /* Forma circular */
-        margin: 0 auto 15px auto; /* Centraliza e dá espaço abaixo */
+        margin: 0 auto 15px auto; 
     }
 }
 
-/* PIN interactivo */
-
+/* interactive PIN*/
 #interactive-pin {
-    top: 20%; /* Ajusta a posição conforme necessário */
-    left: 50%; /* Ajusta a posição conforme necessário */
-    background-color: #3cff00; /* Cor do pin interativo */
+    top: 20%; 
+    left: 50%;
+    background-color: #3cff00; 
     cursor: pointer;
     position: absolute;
     border: 2px solid #ffffff;
@@ -510,7 +505,7 @@ footer {
 }
 
 #interactive-balloon {
-    display: none; /* Esconde o balão inicialmente */
+    display: none; 
     position: absolute;
     top: -40px;
     left: 50%;
@@ -525,7 +520,7 @@ footer {
     z-index: 2;
 }
 
-/* PIN mensagens */
+/* PIN messages */
 .motivational-pin {
     position: absolute;
     width: 20px;
@@ -540,102 +535,100 @@ footer {
 
 /* GLOBE */
 
-/* Garantir que o body ocupe toda a altura */
 html, body {
     height: 100%;
     margin: 0;
     padding: 0;
-    overflow-x: hidden; /* Evitar scroll horizontal */
+    overflow-x: hidden; 
 }
 
 
 
 main {
-    min-height: calc(100vh - 60px); /* O conteúdo ocupa todo o espaço disponível menos o footer */
+    min-height: calc(100vh - 60px); 
     position: relative;
-    overflow: hidden; /* Impede o conteúdo de vazar */
+    overflow: hidden; 
 }
 
-/* Ajuste do Globo para centralização e responsividade */
+/* Globe */
 #globe-container {
-    display: none; /* Inicialmente escondido, só mostrado em mobile/tablet */
+    display: none; 
     justify-content: center;
     align-items: center;
     width: 100%;
-    height: calc(100vh - 60px); /* Ajusta o globo para ocupar o espaço da tela menos o footer */
+    height: calc(100vh - 60px); 
     position: relative;
 }
 
-/* Ocultar o mapa em telas menores (mobile e tablet) */
+/* map occult (mobile e tablet) */
 @media (max-width: 1024px) {
     #map-container {
-        display: none; /* Esconde o mapa em mobile e tablet */
+        display: none; 
     }
 
     #globe-container {
-        display: flex; /* Mostra o globo em dispositivos menores */
+        display: flex; 
         width: 100%;
-        height: calc(100vh - 60px); /* Ajusta o globo para ocupar o espaço da tela menos o footer */
+        height: calc(100vh - 60px); 
     }
 }
 
-/* Ajustes específicos para tablets */
+/* tablet*/
 @media (min-width: 769px) and (max-width: 1024px) {
     #globe-container {
-        height: calc(100vh - 80px); /* Altura ajustada para tablets */
+        height: calc(100vh - 80px); 
     }
 
     #logo {
-        max-width: 200px; /* Aumentar um pouco o logo para tablets */
-        width: 50%; /* Proporcional ao tamanho da tela */
+        max-width: 200px; 
+        width: 50%; 
     }
 }
 
-/* Ajustes específicos para mobiles */
+/* mobiles */
 @media (max-width: 768px) {
     #globe-container {
-        height: calc(100vh - 80px); /* Ajustar altura para garantir que o globo não sobreponha o rodapé */
+        height: calc(100vh - 80px); 
     }
 
     #logo {
-        max-width: 80px; /* Tamanho menor para dispositivos móveis */
+        max-width: 80px; 
     }
 }
 
 /* botton see more... */
 .project-card .btn-secondary {
-    font-size: 14px; /* Ajuste o tamanho do texto */
-    padding: 8px 15px; /* Ajuste o padding */
-    background-color: #303030; /* Cor de fundo diferente */
-    color: #fff; /* Cor do texto */
+    font-size: 14px; 
+    padding: 8px 15px; 
+    background-color: #303030; 
+    color: #fff; 
     border-radius: 5px;
-    text-transform: uppercase; /* Transforma o texto em maiúsculas */
+    text-transform: uppercase; 
     transition: transform 0.3s, background-color 0.3s ease;
 }
 
 .project-card .btn-secondary:hover {
-    background-color: #4e504e; /* Cor ao passar o rato */
-    transform: scale(1.1); /* Efeito de zoom ao passar o rato */
+    background-color: #4e504e; 
+    transform: scale(1.1); 
 }
 
 
-/* Modal Portfólio */
-/* Centralizar o Título do Modal */
+/* Modal Portfolio */
 .modal-header {
     display: flex;
-    justify-content: center; /* Centraliza horizontalmente */
-    align-items: center; /* Centraliza verticalmente */
+    justify-content: center; 
+    align-items: center; 
     border-bottom: 1px solid #444;
     padding-bottom: 15px;
-    position: relative; /* Necessário para o botão fechar */
+    position: relative; 
 }
 
 .modal-title {
-    font-size: 24px; /* Tamanho do título */
+    font-size: 24px; 
     font-weight: bold;
     color: #fff;
     text-transform: uppercase;
-    margin: 0 auto; /* Centraliza o título */
+    margin: 0 auto; 
 }
 
 .modal-header .close {
@@ -651,16 +644,16 @@ main {
 }
 
 .modal-header .close:hover {
-    transform: scale(1.2); /* Efeito de zoom no botão fechar */
+    transform: scale(1.2); 
 }
 
 /* Corpo do Modal */
 .modal-body {
     display: flex;
     flex-direction: column;
-    align-items: center; /* Centraliza todo o conteúdo */
+    align-items: center; 
     justify-content: center;
-    text-align: center; /* Centraliza o texto */
+    text-align: center; 
     padding: 20px;
     color: #d1d1d1;
     font-size: 16px;
@@ -668,11 +661,11 @@ main {
 }
 
 .modal-body .description {
-    margin-bottom: 20px; /* Espaço entre o texto e a seção do GitHub */
+    margin-bottom: 20px; 
 }
 
 .modal-body .github-section {
-    margin-top: 20px; /* Espaçamento entre a descrição e o link do GitHub */
+    margin-top: 20px; 
     text-align: center;
 }
 
@@ -682,63 +675,63 @@ main {
 }
 
 .modal-body .github-icon {
-    width: 60px; /* Tamanho do ícone */
+    width: 60px; 
     height: 60px;
     transition: transform 0.3s ease-in-out, filter 0.3s ease-in-out;
 }
 
 .modal-body .github-icon:hover {
-    transform: scale(1.1); /* Aumenta ligeiramente no hover */
-    filter: brightness(1.2); /* Torna o ícone mais claro no hover */
+    transform: scale(1.1); 
+    filter: brightness(1.2); 
 }
 
-/* Aumentar o tamanho da fonte no modal */
+/* modal size font */
 .modal-body {
-    font-size: 20px; /* Aumentado de 16px para 18px */
-    line-height: 1.8; /* Manter o espaçamento entre linhas para boa leitura */
+    font-size: 20px; 
+    line-height: 1.8; 
 }
 
 .modal-body .github-section p {
-    font-size: 20px; /* Tamanho maior para o título "Project link on GitHub" */
-    font-weight: bold; /* Manter o destaque */
+    font-size: 20px; 
+    font-weight: bold; 
 }
 
 .modal-body .description {
-    margin-top: 20px; /* Adiciona espaço acima do texto */
-    margin-bottom: 25px; /* Espaço abaixo do texto */
-    line-height: 1.8; /* Melhora a legibilidade */
+    margin-top: 20px; 
+    margin-bottom: 25px; 
+    line-height: 1.8; 
 }
 
-/* Ajustar espaçamento entre as linhas no parágrafo */
+/* paragraphs adjust*/
 .modal-body .description p {
-    margin-top: 10px; /* Espaçamento entre os parágrafos dentro da descrição */
+    margin-top: 10px; 
 }
 
 
 /* Modal Responsivo */
 @media (max-width: 1024px) {
     .modal-body {
-        font-size: 14px; /* Texto menor em tablets */
+        font-size: 14px; 
     }
 
     .modal-body .github-icon {
         width: 50px;
-        height: 50px; /* Ícone menor em tablets */
+        height: 50px; 
     }
 }
 
 @media (max-width: 768px) {
     .modal-title {
-        font-size: 20px; /* Reduz tamanho do título */
+        font-size: 20px; 
     }
 
     .modal-body .github-icon {
         width: 40px;
-        height: 40px; /* Ícone ainda menor em mobile */
+        height: 40px; 
     }
 
     .modal-body {
-        font-size: 14px; /* Texto menor para mobile */
+        font-size: 14px;
     }
 }
 
@@ -849,21 +842,21 @@ main {
     margin-bottom: 15px;
 }
 
-/* Garantir que os campos estejam alinhados */
+/* allign */
 .contact-form .form-group {
-    text-align: left; /* Alinhar todo o grupo à esquerda */
-    width: 100%; /* Ocupa toda a largura */
+    text-align: left; 
+    width: 100%; 
     margin-bottom: 15px;
 }
 
-/* Formulário - Alinhar os rótulos à esquerda */
+/* Formulário - left allign */
 .contact-form label {
     display: block;
     margin-bottom: 5px;
     font-size: 14px;
     font-weight: bold;
     color: #d1d1d1;
-    text-align: left; /* Alinhar à esquerda */
+    text-align: left; 
 }
 
 .contact-form .form-control {
@@ -921,18 +914,18 @@ main {
     font-family: 'Roboto', sans-serif;
 }
 
-/* Ajustar largura dos dois containers */
+/* Adjust 2 containers */
 .contact-intro,
 .contact-form {
     flex: 1;
-    max-width: 50%; /* Dividem igualmente o espaço */
+    max-width: 50%;
     background-color: #000000;
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
 }
 
-/* Centralizar conteúdo na Introdução */
+/* text in the center - introduction */
 .contact-intro {
     text-align: center;
     display: flex;
@@ -952,7 +945,7 @@ main {
     font-size: 14px;
     color: #d1d1d1;
     margin-bottom: 15px;
-    text-align: justify; /* Justificar texto */
+    text-align: justify; 
 }
 
 /* Social Icons */
@@ -1028,7 +1021,7 @@ main {
     transform: scale(1.1);
 }
 
-/* Responsividade */
+/* Responsiveness */
 @media (max-width: 1024px) {
     #contactsModal .modal-body {
         flex-direction: column;
@@ -1052,40 +1045,40 @@ main {
     }
 }
 
-/* Ajustar tamanhos de texto */
+/* Ajust text */
 .contact-intro h6 {
-    font-size: 20px; /* Aumentar o tamanho de "Feel free to reach out!" e "Follow Me:" */
+    font-size: 20px; 
     font-weight: bold;
     color: #fff;
     margin-bottom: 15px;
 }
 
 .contact-intro p {
-    font-size: 16px; /* Aumentar o texto descritivo */
+    font-size: 16px;
     color: #d1d1d1;
     margin-bottom: 15px;
     text-align: justify;
 }
 
-/* Criar quadrados para os ícones */
+/* square for the ícons */
 .social-icons a {
     display: flex;
     justify-content: center;
     align-items: center;
     width: 60px;
     height: 60px;
-    background-color: #333; /* Cor de fundo do quadrado */
-    border-radius: 10px; /* Borda arredondada */
+    background-color: #d1d1d1; 
+    border-radius: 10px; 
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
     transition: transform 0.3s ease, filter 0.3s ease;
 }
 
 .social-icons a img {
-    width: 30px; /* Ajustar tamanho do ícone dentro do quadrado */
+    width: 30px; 
     height: 30px;
 }
 
 .social-icons a:hover {
-    transform: scale(1.1); /* Efeito de hover */
-    filter: brightness(1.2); /* Tornar mais claro no hover */
+    transform: scale(1.1); 
+    filter: brightness(1.2); 
 }
